@@ -1,0 +1,121 @@
+﻿@model Faculty_M.Models.Instructor
+@{
+    var instructor = Model;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Instructor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-M3PWQaY2QFIhwuzE7VW3K1dyA0C1coQemlJD1qDzWIxmg4zFMEu50eU/HiPzGmG4" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar-brand {
+            background: linear-gradient(60deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        h5 {
+            color: #1a73e8;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .dark-form {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+            .dark-form .form-group label {
+                color: #ffffff;
+                font-size: 0.9em; /* Adjust label size */
+            }
+
+            .dark-form .form-control {
+                background-color: #444444;
+                color: #ffffff;
+                border: 1px solid #555555;
+            }
+
+                .dark-form .form-control:focus {
+                    background-color: #555555;
+                    color: #ffffff;
+                }
+
+            .dark-form .btn-primary {
+                border-color: #1a73e8;
+                background: linear-gradient(60deg, green, blue);
+                font-weight: bold;
+            }
+
+
+                .dark-form .btn-primary:hover {
+                    background-color: #155ab6;
+                    border-color: #155ab6;
+                }
+
+        .form-group {
+            margin-bottom: 15px; /* Adjust spacing between fields */
+        }
+    </style>
+</head>
+<body>
+    <h5><span class="navbar-brand">Editing Instructor</span></h5>
+
+    <div class="dark-form">
+        <form asp-controller="instructor" asp-action="edit" method="post">
+            <input type="hidden" value="@instructor.InsId" name="InsId" />
+            <div class="form-group">
+                <label for="InsName">Name:</label>
+                <input type="text" class="form-control" value="@instructor.InsName" name="InsName" id="InsName" />
+                <span asp-validation-for="InsName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="InsDegree">Degree:</label>
+                <input type="text" class="form-control" value="@instructor.InsDegree" name="InsDegree" id="InsDegree" />
+                <span asp-validation-for="InsDegree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="DeptId">Department:</label>
+                <select asp-for="DeptId" asp-items="ViewBag.DeptId" class="form-control">
+                    <option value="">-- Select Department --</option>
+                </select>
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="PhoneNumber">Phone Number:</label>
+                <input type="number" class="form-control" value="@instructor.PhoneNumber" name="PhoneNumber" id="PhoneNumber" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="email" class="form-control" value="@instructor.Email" name="Email" id="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Salary">Salary:</label>
+                <input type="number" class="form-control" value="@instructor.Salary" name="Salary" id="Salary" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-center" style="padding-top: 20px;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>
+</body>
+</html>

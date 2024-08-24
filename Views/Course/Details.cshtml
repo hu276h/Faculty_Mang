@@ -1,0 +1,50 @@
+﻿@model Faculty_M.ViewModels.CourseVM
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-M3PWQaY2QFIhwuzE7VW3K1dyA0C1coQemlJD1qDzWIxmg4zFMEu50eU/HiPzGmG4" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: black;
+        color: #0d0d0d;
+    }
+
+    .navbar-brand {
+        background: linear-gradient(60deg, green, blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    h5 {
+        margin: 0;
+        padding: 10px 0;
+    }
+</style>
+
+<body>
+
+    <h5><span class="navbar-brand">Details</span></h5>
+    <table class="table table-dark table-striped" border="2">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Duration</th>
+                <th>Department Id</th>
+                
+        </thead>
+        </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+           <td>@Model.Duration</td>
+            <td>@Model.DeptID</td>
+           
+        </tr>
+    </table>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>
+

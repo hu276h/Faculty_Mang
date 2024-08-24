@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-M3PWQaY2QFIhwuzE7VW3K1dyA0C1coQemlJD1qDzWIxmg4zFMEu50eU/HiPzGmG4" crossorigin="anonymous">
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-color:black;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .navbar-brand {
+            font-size: 1.6em;
+            background: linear-gradient(60deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 60%;
+        }
+
+        .grid-item {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+            .grid-item h2 {
+                margin: 0;
+                font-size: 2.5em;
+                color: #1a73e8;
+            }
+
+        .centered-text {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+        }
+            .grid-item p {
+                font-size: 1.2em;
+                margin-top: 10px;
+            background: linear-gradient(60deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+    <div class="centered-text">
+        <span class="navbar-brand">
+            Hello...!<br>
+            Faculty System
+        </span>
+    </div>
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>@ViewBag.StudentCount</h2>
+            <p>Students</p>
+        </div>
+        <div class="grid-item">
+            <h2>@ViewBag.InstructorCount</h2>
+            <p>Instructors</p>
+        </div>
+        <div class="grid-item">
+            <h2>@ViewBag.CourseCount</h2>
+            <p>Courses</p>
+        </div>
+        <div class="grid-item">
+            <h2>@ViewBag.DepartmentCount</h2>
+            <p>Departments</p>
+        </div>
+        <div class="grid-item">
+            <h2>@ViewBag.ScheduleCount</h2>
+            <p>Schedules</p>
+        </div>
+    </div>
+</body>
+</html>

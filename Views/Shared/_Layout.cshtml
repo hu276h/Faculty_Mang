@@ -1,0 +1,183 @@
+﻿<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-...Your_Integrity_Hash..." crossorigin="anonymous" />
+@{
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
+
+
+
+    var currentController = ViewContext.RouteData.Values["controller"].ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Faculty</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        #sidebar {
+            background: linear-gradient(to top, #000428, #002a5f);
+            color: white;
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+            #sidebar .list-group-item i {
+                color: black;
+            }
+
+
+            #sidebar .list-group-item {
+                background-color: transparent;
+                border: none;
+                padding-top: 30px;
+            }
+
+                #sidebar .list-group-item h6 {
+                    font-size: 1.4em;
+                    font-weight: bold;
+                    background: linear-gradient(90deg, green, blue);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    margin: 55pxpx;
+                    padding-left: 35px;
+                    transition: all 0.3s ease; /* Add smooth transition */
+                }
+
+                #sidebar .list-group-item:hover h6 {
+                    color: black; /* Change text color to black on hover */
+                    font-size: 1.6em; /* Increase text size on hover */
+                    -webkit-background-clip: none; /* Remove gradient effect */
+                    -webkit-text-fill-color: black; /* Ensure color fills the text */
+                }
+
+                #sidebar .list-group-item a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+
+
+        .navbar-brand {
+            font-size: 1.9em;
+            background: linear-gradient(60deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        header {
+            background: #171717; /* Gradient for header */
+            position: fixed;
+            top: 0px;
+            left: 250px; /* Push content to the right of the sidebar */
+            width: calc(100% - 250px); /* Fill the remaining space */
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 4px;
+            text-align: center;
+        }
+
+        .content {
+            margin-left: 250px; /* Push content to the right of the sidebar */
+            padding-top: 70px; /* Prevent content from going under the header */
+        }
+
+        #sidebar-footer {
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: .8em;
+            background: linear-gradient(90deg, #474747, #474747);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    @if (!(currentController == "Home" && currentAction == "Index"))
+
+
+
+    {
+        <header>
+            <nav>
+                <div class="container-fluid justify-content-center">
+                    <span class="navbar-brand">Faculty</span>
+                </div>
+            </nav>
+        </header>
+    }
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <nav id="sidebar">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <h6><i class="fas fa-home"></i> Home</h6>
+
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Instructor" asp-action="Index">
+                    <h6><i class="fas fa-chalkboard-teacher"></i> Instructor</h6>
+
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Student" asp-action="Index">
+                    <h6><i class="fas fa-user-graduate"></i> Student</h6>
+
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Course" asp-action="Index">
+                    <h6><i class="fas fa-book"></i> Course</h6>
+
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Department" asp-action="Index">
+                    <h6><i class="fas fa-building"></i> Department</h6>
+
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a asp-area="" asp-controller="Schedule" asp-action="Index">
+                    <h6><i class="fas fa-calendar-alt"></i> Schedule</h6>
+
+                </a>
+            </li>
+        </ul>
+        <div id="sidebar-footer">
+            By Hussein Hesham
+        </div>
+    </nav>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

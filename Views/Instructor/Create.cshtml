@@ -1,0 +1,109 @@
+﻿@model Faculty_M.Models.Instructor
+
+<h5><span class="navbar-brand">Create New Instructor</span></h5>
+<div class="dark-form">
+    <form asp-controller="instructor" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="InsId">Instructor Id:</label>
+            <input type="text" asp-for="InsId" class="form-control" />
+            <span asp-validation-for="InsId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="InsName">Instructor Name:</label>
+            <input type="text" asp-for="InsName" class="form-control" />
+            <span asp-validation-for="InsName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="PhoneNumber">Phone Number:</label>
+            <input type="text" asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email:</label>
+            <input type="text" asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Salary">Salary:</label>
+            <input type="number" asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="DeptId">Department Id:</label>
+            <select asp-for="DeptId" asp-items="ViewBag.DeptId" class="form-control">
+                <option value="">-- Select Department --</option>
+            </select>
+            <span asp-validation-for="DeptId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="InsDegree">Degree:</label>
+            <input type="text" asp-for="InsDegree" class="form-control" />
+            <span asp-validation-for="InsDegree" class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-center" style="padding-top: 40px;">
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+
+    .dark-form {
+        background-color: #333333;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+        .dark-form .form-group label {
+            color: #ffffff;
+        }
+
+        .dark-form .form-control {
+            background-color: #444444;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+            .dark-form .form-control:focus {
+                background-color: #555555;
+                color: #ffffff;
+            }
+
+        .dark-form .btn-primary {
+            border-color: #1a73e8;
+            background: linear-gradient(60deg, green, blue);
+            font-weight: bold;
+        }
+
+            .dark-form .btn-primary:hover {
+                background-color: #155ab6;
+                border-color: #155ab6;
+            }
+
+    .navbar-brand {
+        background: linear-gradient(60deg, green, blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    h5 {
+        color: #1a73e8;
+        text-align: center;
+        padding-top: 20px;
+    }
+</style>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>

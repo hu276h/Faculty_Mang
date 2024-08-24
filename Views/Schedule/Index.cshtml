@@ -1,0 +1,95 @@
+﻿@model ICollection<Faculty_M.Models.Schedule>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-M3p3p3p3q3q3r4r5r5r6s6s7t7u8u9v8v9v9w0x0y0z0z0z1y2y3y4z5z6z7z8z9" crossorigin="anonymous">
+
+</head>
+<style>
+    body {
+        background-color: black;
+        color: #0d0d0d;
+    }
+
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        background: linear-gradient(60deg, green, blue);
+    }
+
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+    .navbar-brand {
+        font-size: 1.4em;
+        background: linear-gradient(60deg, green, blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    .create-btn {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    .container {
+        padding-top: 7px;
+    }
+</style>
+<body>
+    <div class="container">
+        <table class="table table-dark table-striped" border="2">
+            <caption><span class="navbar-brand">Schedule Table</span></caption>
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id </th>
+                    <th>Day OF Week</th>
+                    <th> Start Time </th>
+                    <th>End Time </th>
+                    <th>Details</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var schedule in Model)
+                {
+                    <tr>
+                        <td>@schedule.SchId </td>
+                        <td> @schedule.DayOfWeek </td>
+                        <td>@schedule.StartTime</td>
+                        <td> @schedule.EndTime</td>
+                        <td>
+                            <form action="/schedule/details/@schedule.SchId" method="post">
+                                <button class="btn btn-primary">details</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form action="/schedule/edit/@schedule.SchId" method="get">
+                                <button class="btn btn-primary">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form asp-action="Delete" method="post" onsubmit="return confirm('Are you sure you want to delete this schedule?');">
+                                <input type="hidden" name="id" value="@schedule.SchId" />
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="text-center my-3">
+            <form action="/schedule/create" method="get">
+                <button class="btn btn-primary">Create new schedule</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>

@@ -1,0 +1,95 @@
+﻿@model Faculty_M.Models.Course
+
+<h5><span class="navbar-brand">Create New Course</span></h5>
+<div class="dark-form">
+    <form asp-controller="course" asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="CrsId">Course Id:</label>
+            <input type="number" asp-for="CrsId" class="form-control" />
+            <span asp-validation-for="CrsId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="CrsName">Course Name:</label>
+            <input type="text" asp-for="CrsName" class="form-control" />
+            <span asp-validation-for="CrsName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="CrsDuration">Course Duration:</label>
+            <input type="number" asp-for="CrsDuration" class="form-control" />
+            <span asp-validation-for="CrsDuration" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="DeptId">Department:</label>
+            <select asp-for="DeptId" asp-items="ViewBag.DeptId" class="form-control">
+                <option value="">-- Select Department --</option>
+            </select>
+            <span asp-validation-for="DeptId" class="text-danger"></span>
+        </div>
+        <div class="d-flex justify-content-center" style="padding-top: 40px;">
+            <input type="submit" class="btn btn-primary" value="Create" />
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+
+    .dark-form {
+        background-color: #333333;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+        .dark-form .form-group label {
+            color: #ffffff;
+        }
+
+        .dark-form .form-control {
+            background-color: #444444;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+            .dark-form .form-control:focus {
+                background-color: #555555;
+                color: #ffffff;
+            }
+
+        .dark-form .btn-primary {
+            border-color: #1a73e8;
+            background: linear-gradient(60deg, green, blue);
+            font-weight: bold;
+        }
+
+
+            .dark-form .btn-primary:hover {
+                background-color: #155ab6;
+                border-color: #155ab6;
+            }
+
+    .navbar-brand {
+        background: linear-gradient(60deg, green, blue);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+
+    h5 {
+        color: #1a73e8;
+        text-align: center;
+        padding-top: 20px;
+    }
+</style>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>

@@ -1,0 +1,130 @@
+﻿@model Faculty_M.Models.Schedule
+@{
+    var schedule = Model;
+
+    var daysOfWeek = new List<SelectListItem>
+    {
+        new SelectListItem { Value = "Monday", Text = "Monday" },
+        new SelectListItem { Value = "Tuesday", Text = "Tuesday" },
+        new SelectListItem { Value = "Wednesday", Text = "Wednesday" },
+        new SelectListItem { Value = "Thursday", Text = "Thursday" },
+        new SelectListItem { Value = "Friday", Text = "Friday" },
+        new SelectListItem { Value = "Saturday", Text = "Saturday" },
+        new SelectListItem { Value = "Sunday", Text = "Sunday" }
+    };
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Schedule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-M3PWQaY2QFIhwuzE7VW3K1dyA0C1coQemlJD1qDzWIxmg4zFMEu50eU/HiPzGmG4" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .dark-form {
+            background-color: #333333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+            .dark-form .form-group label {
+                color: #ffffff;
+            }
+
+            .dark-form .form-control {
+                background-color: #444444;
+                color: #ffffff;
+                border: 1px solid #555555;
+            }
+
+                .dark-form .form-control:focus {
+                    background-color: #555555;
+                    color: #ffffff;
+                }
+
+            .dark-form .btn-primary {
+                border-color: #1a73e8;
+                background: linear-gradient(60deg, green, blue);
+                font-weight: bold;
+            }
+
+
+                .dark-form .btn-primary:hover {
+                    background-color: #155ab6;
+                    border-color: #155ab6;
+                }
+
+        .navbar-brand {
+            background: linear-gradient(60deg, green, blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+   
+        h5 {
+            color: #1a73e8;
+            text-align: center;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h5><span class="navbar-brand">Create New Schedule</span></h5>
+    <div class="dark-form">
+        <form asp-controller="schedule" asp-action="Create" method="post">
+            <div class="form-group">
+                <label for="SchId">Schedule Id:</label>
+                <input type="number" asp-for="SchId" class="form-control" />
+                <span asp-validation-for="SchId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="DayOfWeek">Day Of Week:</label>
+                <select asp-for="DayOfWeek" class="form-control" asp-items="daysOfWeek"></select>
+                <span asp-validation-for="DayOfWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="StartTime">Start Time:</label>
+                <input type="time" asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="EndTime">End Time:</label>
+                <input type="time" asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Location">Location:</label>
+                <input type="text" asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="InsId">Instructor Id:</label>
+                <input type="number" asp-for="InsId" class="form-control" />
+                <span asp-validation-for="InsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="CrsId">Course Id:</label>
+                <input type="number" asp-for="CrsId" class="form-control" />
+                <span asp-validation-for="CrsId" class="text-danger"></span>
+            </div>
+            <div class="d-flex justify-content-center" style="padding-top: 40px;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgvVh5lB7Cji8gk54A1hohzTYfJr8Hd50Tvf6Ezri0fxYSl0pGr" crossorigin="anonymous"></script>
+</body>
+</html>
